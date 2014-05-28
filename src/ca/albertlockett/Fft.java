@@ -8,6 +8,8 @@ package ca.albertlockett;
  */
 public class Fft {
 
+	private final ComplexOperator co = new ComplexOperator();
+	
 	/**
 	 * Recursively calculate FFT 
 	 * 
@@ -32,9 +34,10 @@ public class Fft {
 			Complex[] combined = new Complex[n];
 			
 			for(int m = 0; m < n/2; m++){
-				combined[m] = Feven[m].add(omega(n, -m).times(Fodd[m]));
-				combined[m + n/2] = Feven[m].subtract(
-						omega(n,-m).times(Fodd[m]));
+				
+				combined[m] = co.add(Feven[m], co.times(omega(n,-m), Feven[m]));
+				combined[m + n/2] = co.subtract(Feven[m],
+						co.times(omega(n,-m), Fodd[m]));
 			}
 			
 			return combined;
@@ -62,6 +65,8 @@ public class Fft {
 	 */
 	private Complex[] getArrayPart(Complex[] signal, FFT part){
 		
+		// TODO
+		
 		return new Complex[3];
 	}
 	
@@ -76,6 +81,8 @@ public class Fft {
 	 * @return complex value of e^(2*pi*j*m/n)
 	 */
 	private Complex omega(int n, int m) {
+		
+		// TODO
 		
 		return new Complex();
 	}

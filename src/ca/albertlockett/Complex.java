@@ -7,88 +7,55 @@ package ca.albertlockett;
  */
 public class Complex {
 	
-	private Double real;
-	private Double imag;
+	public Double real;
+	public Double imag;
 	
 	// Constructors
+	/**
+	 * @return 0 + 0j
+	 */
 	public Complex(){
 		this.real = 0.0;
 		this.imag = 0.0;
 	}
+	
+	/**
+	 * @param real
+	 * @param imag
+	 * @return real + imag * j
+	 */
 	public Complex(Double real, Double imag){
 		this.real = real;
 		this.imag = imag;
 	}
 	
-	// Getters and setters
-	public Double getReal(){
-		return this.real;
-	}
-	public void setReadl(Double real){
+	/**
+	 * @param real
+	 * @return real + 0j
+	 */
+	public Complex(Double real){
 		this.real = real;
-	}
-	
-	public Double getImag(){
-		return this.imag;
-	}
-	public void setImag(Double imag){
-		this.imag = imag;
-	}
-	
-	
-	// Arithmetic Operations
-	
-	/**
-	 * Arithmetic Multiply
-	 * @param c2 whats multiplying this object
-	 * @return this *  c2
-	 */
-	public Complex times(Complex c2){
-		return new Complex();
+		this.imag = 0.0;
 	}
 	
 	/**
-	 * Arithmentic Add
-	 * @param c2 what is added to this object
-	 * @return this + c2
+	 * @param real
+	 * @param imag
+	 * @return real + imag * j
 	 */
-	public Complex add(Complex c2){
-		return new Complex();
+	public Complex(int real, int imag){
+		this.real = (double) real;
+		this.imag = (double) imag;
 	}
 	
 	/**
-	 * Arithmetic Subtract
-	 * @param c2 what is subtracted from this object
-	 * @return this - c2
+	 * @param real
+	 * @return real + 0j
 	 */
-	public Complex subtract(Complex c2){
-		return new Complex();
+	public Complex(int real){
+		this.real = (double) real;
 	}
+
 	
-	/**
-	 * Arithmetic Divide
-	 * @param c2 what is dividing this object
-	 * @return this / c2
-	 */
-	public Complex divide(Complex c2){
-		return new Complex();
-	}
-	
-	// Other operations
-	
-	/**
-	 * Switches from + to - sign
-	 * @return - this
-	 */
-	public Complex switchSign(){
-		return this;
-	}
-	
-	/**
-	 * Calculate reciprocal
-	 * @reutrn 1/this
-	 */
-	public Complex invert(){
-		return this;
-	}
+
 }
