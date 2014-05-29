@@ -54,6 +54,7 @@ public class Complex {
 	 */
 	public Complex(int real){
 		this.real = (double) real;
+		this.imag = 0.0;
 	}
 
 	

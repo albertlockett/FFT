@@ -1,5 +1,8 @@
 package ca.albertlockett;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * FFT Class
  * 
@@ -65,9 +68,26 @@ public class Fft {
 	 */
 	private Complex[] getArrayPart(Complex[] signal, FFT part){
 		
-		// TODO
+		List<Complex> outputSignalContainer = new ArrayList<Complex>();
 		
-		return new Complex[3];
+		int x = 1;
+		if (FFT.EVEN == part){
+			x = 0;
+		}
+		
+		for(int i = 0; i < signal.length; i++){
+			if((i + x) % 2 == 0){
+				outputSignalContainer.add(signal[i]);
+			}
+		}
+		
+		Complex[] outputSignal = new Complex[outputSignalContainer.size()];
+		for(int i = 0; i < outputSignal.length; i++){
+			outputSignal[i] = outputSignalContainer.get(i);
+		}
+		
+		
+		return outputSignal;
 	}
 	
 	
@@ -82,9 +102,9 @@ public class Fft {
 	 */
 	private Complex omega(int n, int m) {
 		
-		// TODO
+		double x = 2.0 * 3.145 * (double) m / (double) n;
 		
-		return new Complex();
+		return new Complex( Math.cos(x), Math.sin(x));
 	}
 	
 }
