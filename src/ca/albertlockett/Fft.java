@@ -1,7 +1,5 @@
 package ca.albertlockett;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * FFT Class
@@ -31,8 +29,10 @@ public class Fft {
 		
 		} else {
 			
-			Complex[] Feven = getArrayPart(signal, FFT.EVEN);
-			Complex[] Fodd  = getArrayPart(signal, FFT.ODD);
+			Complex[] Feven = fft(
+					ArraySplitter.getArrayPart(signal, ArraySplitter.FFT.EVEN));
+			Complex[] Fodd  = fft(
+					ArraySplitter.getArrayPart(signal, ArraySplitter.FFT.ODD));
 			
 			Complex[] combined = new Complex[n];
 			
@@ -46,49 +46,8 @@ public class Fft {
 			return combined;
 		}
 		
-		
 	}
 	
-	/**
-	 * Used to choose the whether the partial array should return even or odd
-	 * values of the signal
-	 * @author albertlockett
-	 *
-	 */
-	private enum FFT{
-		EVEN, ODD;
-	}
-	
-	
-	/**
-	 * Splits signal array into even or odd elements based on part enum
-	 * @param signal signal to be split
-	 * @param part FFT either even or odd
-	 * @return either all even values or all odd values of signal
-	 */
-	private Complex[] getArrayPart(Complex[] signal, FFT part){
-		
-		List<Complex> outputSignalContainer = new ArrayList<Complex>();
-		
-		int x = 1;
-		if (FFT.EVEN == part){
-			x = 0;
-		}
-		
-		for(int i = 0; i < signal.length; i++){
-			if((i + x) % 2 == 0){
-				outputSignalContainer.add(signal[i]);
-			}
-		}
-		
-		Complex[] outputSignal = new Complex[outputSignalContainer.size()];
-		for(int i = 0; i < outputSignal.length; i++){
-			outputSignal[i] = outputSignalContainer.get(i);
-		}
-		
-		
-		return outputSignal;
-	}
 	
 	
 	/**

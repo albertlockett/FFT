@@ -56,6 +56,18 @@ public class Complex {
 		this.real = (double) real;
 		this.imag = 0.0;
 	}
+	
+	
+	/**
+	 * This method makes testing easier
+	 */
+	@Override
+	public boolean equals(Object c){
+		if(this.real == ((Complex) c).real && this.imag == ((Complex)c).imag){
+			return true;
+		} 
+		return false;
+	}
 
 	
 
