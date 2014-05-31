@@ -63,7 +63,9 @@ public class Complex {
 	 */
 	@Override
 	public boolean equals(Object c){
-		if(this.real == ((Complex) c).real && this.imag == ((Complex)c).imag){
+		if(	this.real.equals(((Complex) c).real) && 
+			this.imag.equals(((Complex)c).imag)) 
+		{
 			return true;
 		} 
 		return false;
