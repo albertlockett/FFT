@@ -1,4 +1,4 @@
 FFT
 ===
 
-FFT UDF for Pig
+FFT implemented in yarn
